@@ -1,6 +1,5 @@
 package reflection;
 
-import com.sun.org.apache.xpath.internal.objects.XObject;
 
 import java.lang.reflect.Method;
 
