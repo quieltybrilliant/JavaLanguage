@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicStampedReference;
  * 这个类的compareAndSet方法作用是首先检查当前引用是否等于预期引用，并且当前标志是否等于预期标志，如果全部相等，
  * 则以原子方式将该引用和该标志的值设置为给定的更新值。
  */
-public class ABAAtomicStampedReference {
+public class juc_cas_02_ABAAtomicStampedReference {
     private static AtomicInteger atomicInt = new AtomicInteger(100);
     private static AtomicStampedReference atomicStampedRef = new AtomicStampedReference(100, 0);
 

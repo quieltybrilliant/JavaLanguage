@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 *   对于读取操作占多数的数据结构。 ReadWriteLock 能提供比独占锁更高的并发性。
 *   而对于只读的数据结构，其中包含的不变性可以完全不需要考虑加锁操作。
  */
-public class ReadWriteLockDemo {
+public class juc_04_ReadWriteLockExample {
 
     public static void main(String[] args) {
         RWDemo rw = new RWDemo();

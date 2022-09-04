@@ -25,7 +25,7 @@ import java.util.concurrent.CountDownLatch;
  * 多个线程在开始执行任务前首先 coundownlatch.await()，当主线程调用 countDown() 时，
  * 计数器变为0，多个线程同时被唤醒。
  */
-public class CountDownLatchDemo {
+public class juc_01_CountDownLatchExample {
 
     public static void main(String[] agrs) {
         CountDownLatch latch = new CountDownLatch(5); // 5表示有5个线程

@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * CAS核心方法是 compareAndSet，compareAndSet利用JNI（Java Native Interface）来完成CPU指令的操作。
  * 原子操作常用类（value 有volatile修饰）
  */
-public class AtomicDemo {
+public class juc_cas_01_AtomicExample {
 
     public static void main(String[] args) {
         Demo ad = new Demo();

@@ -4,7 +4,16 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.TimeUnit;
 
-public class BlockingQueueDemo {
+/**
+ * @Author: guang
+ * @Date: 2022/9/4
+ * @Desc: juc_02_ConcurrentHashMap
+ *
+ * ● 各种并发容器，比如ConcurrentHashMap、CopyOnWriteArrayList。
+ * ● 各种线程安全队列（Queue/Deque），如ArrayBlockingQueue、SynchronousQueue。
+ * ● 各种有序容器的线程安全版本等。
+ */
+public class juc_02_ArrayBlockingQueueExample {
 
     /**
      * 抛出异常
@@ -27,11 +36,10 @@ public class BlockingQueueDemo {
 
     }
 
-
     /**
      * 有返回值没有异常
      */
-    public static void test2(){
+    public static void test2() {
         ArrayBlockingQueue queue = new ArrayBlockingQueue(3);
 
         System.out.println(queue.offer("a"));
@@ -43,6 +51,7 @@ public class BlockingQueueDemo {
         System.out.println(queue.poll());
         System.out.println(queue.poll());   //null 不抛出异常
     }
+
 
     /**
      * 等待阻塞
@@ -59,11 +68,9 @@ public class BlockingQueueDemo {
     }
 
 
-
-
     public static void main(String[] args) {
         SynchronousQueue<String> synchronousQueue = new SynchronousQueue<>(); //同步队列
-        new Thread(()->{
+        new Thread(() -> {
             try {
                 System.out.println(Thread.currentThread().getName() + " put 1");
                 synchronousQueue.put("1");
@@ -74,9 +81,9 @@ public class BlockingQueueDemo {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        },"T1").start();
+        }, "T1").start();
 
-        new Thread(()->{
+        new Thread(() -> {
             try {
                 TimeUnit.SECONDS.sleep(3);
                 System.out.println(Thread.currentThread().getName() + "=>" + synchronousQueue.take());
@@ -88,6 +95,7 @@ public class BlockingQueueDemo {
                 e.printStackTrace();
             } finally {
             }
-        },"T2").start();
+        }, "T2").start();
     }
+
 }

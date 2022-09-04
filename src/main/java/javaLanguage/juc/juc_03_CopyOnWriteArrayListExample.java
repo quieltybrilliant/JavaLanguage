@@ -8,7 +8,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * 注意：添加操作多时，效率低，因为每次添加时都会进行复制，开销非常的大。并发迭代操作多时可以选择。
  * 适合读多操作
  */
-public class CopyOnWriteArrayListDemo {
+public class juc_03_CopyOnWriteArrayListExample {
     public static void main(String[] args) {
         DemoThread ht = new DemoThread();
 
