@@ -10,7 +10,7 @@ package javaLanguage.thread;
  * 那么访问这个变量的每个线程都会有这个变量的一个副本，在实际多线程操作的时候，
  * 操作的是自己本地内存中的变量，从而规避了线程安全问题
  */
-public class ThreadLocalExample {
+public class thread_05_ThreadLocalExample {
     static ThreadLocal<String> localVar = new ThreadLocal<>();
     static void print(String str) {
         //打印当前线程中本地内存中本地变量的值
