@@ -1,22 +1,17 @@
-package javaLanguage.collection.list;
+package javaLanguage.collection.list.service;
 
 import java.util.Iterator;
 import java.util.LinkedList;
 
-/**
- *
- * @author liuchao
- *
- */
-public class LinkedListTest {
+
+public class LinkedListUtil {
 
     /**
-     *
-     * @param DataNum
+     * 从LinkedList头部增加元素
      */
     public static void addFromHeaderTest(int DataNum)
     {
-        LinkedList<String> list=new LinkedList<String>();
+        java.util.LinkedList<String> list=new java.util.LinkedList<String>();
         int i=0;
         long timeStart=System.currentTimeMillis();
         while(i<DataNum)
@@ -30,12 +25,11 @@ public class LinkedListTest {
     }
 
     /**
-     *
-     * @param DataNum
+     * 从LinkedList中间增加元素
      */
     public static void addFromMidTest(int DataNum)
     {
-        LinkedList<String> list=new LinkedList<String>();
+        java.util.LinkedList<String> list=new java.util.LinkedList<String>();
         int i=0;
         long timeStart=System.currentTimeMillis();
         while(i<DataNum)
@@ -50,12 +44,11 @@ public class LinkedListTest {
     }
 
     /**
-     *
-     * @param DataNum
+     * 从LinkedList尾部增加元素
      */
     public static void addFromTailTest(int DataNum)
     {
-        LinkedList<String> list=new LinkedList<String>();
+        java.util.LinkedList<String> list=new java.util.LinkedList<String>();
         int i=0;
         long timeStart=System.currentTimeMillis();
         while(i<DataNum)
@@ -69,12 +62,11 @@ public class LinkedListTest {
     }
 
     /**
-     *
-     * @param DataNum
+     * 从LinkedList头部删除元素
      */
     public static void deleteFromHeaderTest(int DataNum)
     {
-        LinkedList<String> list=new LinkedList<String>();
+        java.util.LinkedList<String> list=new java.util.LinkedList<String>();
         int i=0;
 
         while(i<DataNum)
@@ -97,12 +89,11 @@ public class LinkedListTest {
     }
 
     /**
-     *
-     * @param DataNum
+     * 从LinkedList中间删除元素
      */
     public static void deleteFromMidTest(int DataNum)
     {
-        LinkedList<String> list=new LinkedList<String>();
+        java.util.LinkedList<String> list=new java.util.LinkedList<String>();
 
         int i=0;
         while(i<DataNum)
@@ -127,12 +118,11 @@ public class LinkedListTest {
     }
 
     /**
-     *
-     * @param DataNum
+     * 从LinkedList尾部删除元素
      */
     public static void deleteFromTailTest(int DataNum)
     {
-        LinkedList<String> list=new LinkedList<String>();
+        java.util.LinkedList<String> list=new java.util.LinkedList<String>();
         int i=0;
         while(i<DataNum)
         {
@@ -157,11 +147,10 @@ public class LinkedListTest {
 
 
     /**
-     *
-     * @param DataNum
+     * 通过for循环获取元素
      */
     public static void getByForTest(int DataNum) {
-        LinkedList<String> list = new LinkedList<String>();
+        java.util.LinkedList<String> list = new java.util.LinkedList<String>();
         int i = 0;
 
         while (i < DataNum) {
@@ -180,11 +169,10 @@ public class LinkedListTest {
     }
 
     /**
-     *
-     * @param DataNum
+     * 通过迭代获取元素
      */
     public static void getByIteratorTest(int DataNum) {
-        LinkedList<String> list = new LinkedList<String>();
+        java.util.LinkedList<String> list = new java.util.LinkedList<String>();
         int i = 0;
 
         while (i < DataNum) {

@@ -7,23 +7,36 @@ import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class TreeMapConsistentHashing<S> { // S类封装了机器节点的信息 ，如name、password、ip、port等
+/**
+ * TreeMap实现一致性hash算法获得机器
+ */
+public class collect_map_01_TreeMapConsistentHash<S> {
 
-    private TreeMap<Long, S> nodes; // 虚拟节点
-    private List<S> shards; // 真实机器节点
-    private final int NODE_NUM = 100; // 每个机器节点关联的虚拟节点个数
+    // S类封装了机器节点的信息 ，如name、password、ip、port等
+    private TreeMap<Long, S> nodes;
 
-    public TreeMapConsistentHashing(List<S> shards) {
+    // 真实机器节点
+    private List<S> shards;
+
+    // 每个机器节点关联的虚拟节点个数
+    private final int NODE_NUM = 100;
+
+    public collect_map_01_TreeMapConsistentHash(List<S> shards) {
         super();
         this.shards = shards;
         init();
     }
 
-    private void init() { // 初始化一致性hash环
+    /**
+     * 将每台机器进行初始化
+     */
+    private void init() {
         nodes = new TreeMap<Long, S>();
-        for (int i = 0; i != shards.size(); ++i) { // 每个真实机器节点都需要关联虚拟节点
-            final S shardInfo = shards.get(i);
+        for (int i = 0; i != shards.size(); ++i) {
 
+            // 每个真实机器节点都需要关联虚拟节点
+
+            final S shardInfo = shards.get(i);
             for (int n = 0; n < NODE_NUM; n++)
                 // 一个真实机器节点关联NODE_NUM个虚拟节点
                 nodes.put(hash("SHARD-" + i + "-NODE-" + n), shardInfo);
@@ -33,18 +46,27 @@ public class TreeMapConsistentHashing<S> { // S类封装了机器节点的信息
 
     public S getShardInfo(String key) {
         //   获取一个子集。其所有对象的 key 的值大于等于 fromKey
-        SortedMap<Long, S> tail = nodes.tailMap(hash(key)); // 沿环的顺时针找到一个虚拟节点
+        // tailMap沿环的顺时针找到一个虚拟节点
+        SortedMap<Long, S> tail = nodes.tailMap(hash(key));
         if (tail.size() == 0) {
+            // 放回当前key值的第一个元素
             return nodes.get(nodes.firstKey());
         }
         return tail.get(tail.firstKey()); // 返回该虚拟节点对应的真实机器节点的信息
     }
 
     /**
-     *  MurMurHash算法，是非加密HASH算法，性能很高，
-     *  比传统的CRC32,MD5，SHA-1（这两个算法都是加密HASH算法，复杂度本身就很高，带来的性能上的损害也不可避免）
-     *  等HASH算法要快很多，而且据说这个算法的碰撞率很低.
-     *  http://murmurhash.googlepages.com/
+     * MurMurHash算法，是非加密HASH算法，性能很高，
+     * 比传统的CRC32,MD5，SHA-1（这两个算法都是加密HASH算法，复杂度本身就很高，带来的性能上的损害也不可避免）
+     * 等HASH算法要快很多，而且据说这个算法的碰撞率很低.
+     * http://murmurhash.googlepages.com/
+     * <p>
+     * 谷歌MurMurHash算法实现
+     * import com.google.common.hash.HashFunction;
+     * import com.google.common.hash.Hashing;
+     * <p>
+     * HashFunction hashFunction = Hashing.murmur3_128();
+     * hashFunction.hashString(str, StandardCharsets.UTF_8).toString();
      */
     private Long hash(String key) {
 
@@ -72,8 +94,7 @@ public class TreeMapConsistentHashing<S> { // S类封装了机器节点的信息
         }
 
         if (buf.remaining() > 0) {
-            ByteBuffer finish = ByteBuffer.allocate(8).order(
-                    ByteOrder.LITTLE_ENDIAN);
+            ByteBuffer finish = ByteBuffer.allocate(8).order(ByteOrder.LITTLE_ENDIAN);
             // for big-endian version, do this first:
             // finish.position(8-buf.remaining());
             finish.put(buf).rewind();

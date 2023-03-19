@@ -8,6 +8,9 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
+/**
+ * IO客户端
+ */
 public class Client {
 
 	private static int DEFAULT_SERVER_PORT = 12345;
@@ -43,6 +46,7 @@ public class Client {
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			out = new PrintWriter(socket.getOutputStream(), true);
 
+			// 发送消息
 			out.println(msg);
 			System.out.println("返回消息为：" + in.readLine());
 

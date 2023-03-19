@@ -1,4 +1,4 @@
-package javaLanguage.collection.stream;
+package javaLanguage.collection.stream.entity;
 
 public class Student {
 
@@ -9,18 +9,23 @@ public class Student {
     public String getSex() {
         return sex;
     }
+
     public void setSex(String sex) {
         this.sex = sex;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public int getHeight() {
         return height;
     }
+
     public void setHeight(int height) {
         this.height = height;
     }

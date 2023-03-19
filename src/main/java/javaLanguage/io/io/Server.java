@@ -6,6 +6,9 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * IO服务端
+ */
 public class Server {
 	
 	private static int DEFAULT_PORT = 12345;

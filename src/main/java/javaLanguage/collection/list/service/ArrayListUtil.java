@@ -1,16 +1,15 @@
-package javaLanguage.collection.list;
+package javaLanguage.collection.list.service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ArrayListTest {
+public class ArrayListUtil {
 
     /**
-     *
-     * @param DataNum
+     * 从ArrayList头部添加元素
      */
     public static void addFromHeaderTest(int DataNum) {
-        ArrayList<String> list = new ArrayList<String>(DataNum);
+        java.util.ArrayList<String> list = new java.util.ArrayList<String>(DataNum);
         int i = 0;
 
         long timeStart = System.currentTimeMillis();
@@ -26,11 +25,10 @@ public class ArrayListTest {
 
 
     /**
-     *
-     * @param DataNum
+     * 从ArrayList中间添加元素
      */
     public static void addFromMidTest(int DataNum) {
-        ArrayList<String> list = new ArrayList<String>(DataNum);
+        java.util.ArrayList<String> list = new java.util.ArrayList<String>(DataNum);
         int i = 0;
 
         long timeStart = System.currentTimeMillis();
@@ -46,11 +44,10 @@ public class ArrayListTest {
 
 
     /**
-     *
-     * @param DataNum
+     * 从ArrayList尾部添加元素
      */
     public static void addFromTailTest(int DataNum) {
-        ArrayList<String> list = new ArrayList<String>(DataNum);
+        java.util.ArrayList<String> list = new java.util.ArrayList<String>(DataNum);
         int i = 0;
 
         long timeStart = System.currentTimeMillis();
@@ -67,11 +64,11 @@ public class ArrayListTest {
 
 
     /**
-     *
-     * @param DataNum
+     * 从ArrayList头部删除元素
+     * 先从尾部添加元素
      */
     public static void deleteFromHeaderTest(int DataNum) {
-        ArrayList<String> list = new ArrayList<String>();
+        java.util.ArrayList<String> list = new java.util.ArrayList<String>();
         int i = 0;
 
         while (i < DataNum) {
@@ -86,7 +83,6 @@ public class ArrayListTest {
             i++;
         }
 
-
         long timeEnd = System.currentTimeMillis();
 
         System.out.println("ArrayList从集合头部位置删除元素花费的时间" + (timeEnd - timeStart));
@@ -94,11 +90,11 @@ public class ArrayListTest {
 
 
     /**
-     *
-     * @param DataNum
+     * 从ArrayList中间删除元素
+     * 先从尾部添加元素
      */
     public static void deleteFromMidTest(int DataNum) {
-        ArrayList<String> list = new ArrayList<String>();
+        java.util.ArrayList<String> list = new java.util.ArrayList<String>();
         int i = 0;
         while (i < DataNum) {
             list.add(i + "aaavvv");
@@ -121,11 +117,11 @@ public class ArrayListTest {
 
 
     /**
-     *
-     * @param DataNum
+     * 从ArrayList尾部删除元素
+     * 先从尾部添加元素
      */
     public static void deleteFromTailTest(int DataNum) {
-        ArrayList<String> list = new ArrayList<String>();
+        java.util.ArrayList<String> list = new java.util.ArrayList<String>();
         int i = 0;
         while (i < DataNum) {
             list.add(i + "aaavvv");
@@ -150,11 +146,10 @@ public class ArrayListTest {
 
 
     /**
-     *
-     * @param DataNum
+     * 使用for循环元素
      */
     public static void getByForTest(int DataNum) {
-        ArrayList<String> list = new ArrayList<String>();
+        java.util.ArrayList<String> list = new java.util.ArrayList<String>();
         int i = 0;
 
         while (i < DataNum) {
@@ -174,11 +169,10 @@ public class ArrayListTest {
 
 
     /**
-     *
-     * @param DataNum
+     * 使用迭代器获取元素
      */
     public static void getByIteratorTest(int DataNum) {
-        ArrayList<String> list = new ArrayList<String>();
+        java.util.ArrayList<String> list = new java.util.ArrayList<String>();
         int i = 0;
 
         while (i < DataNum) {

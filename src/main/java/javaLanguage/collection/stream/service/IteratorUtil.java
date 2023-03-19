@@ -1,4 +1,6 @@
-package javaLanguage.collection.stream;
+package javaLanguage.collection.stream.service;
+
+import javaLanguage.collection.stream.entity.Student;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,12 +8,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
- * @author liuchao
- *
+ * 迭代器
  */
-public class IteratorTest {
+public class IteratorUtil {
 
+    /**
+     * 迭代器获取最小元素
+     * @param arr
+     */
     public static void IteratorForIntTest(int[] arr) {
         long timeStart = System.currentTimeMillis();
 
@@ -25,6 +29,10 @@ public class IteratorTest {
         System.out.println("Iterator 比较int最小值 花费的时间" + (timeEnd - timeStart));
     }
 
+    /**
+     * 迭代器获取元素
+     * @param studentsList
+     */
     public static void IteratorForObjectTest(List<Student> studentsList) {
         long timeStart = System.currentTimeMillis();
         Map<String, List<Student>> stuMap = new HashMap<String, List<Student>>();

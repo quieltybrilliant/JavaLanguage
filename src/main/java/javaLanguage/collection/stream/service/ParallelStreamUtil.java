@@ -1,4 +1,6 @@
-package javaLanguage.collection.stream;
+package javaLanguage.collection.stream.service;
+
+import javaLanguage.collection.stream.entity.Student;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,12 +8,13 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- *
- * @author liuchao
- *
+ * 并行Stream
  */
-public class ParallelStreamTest {
+public class ParallelStreamUtil {
 
+    /**
+     * 获得最小值
+     */
     public static void ParallelStreamForIntTest(int[] arr) {
         long timeStart = System.currentTimeMillis();
 
@@ -21,6 +24,9 @@ public class ParallelStreamTest {
         System.out.println("ParallelStream 比较int最小值 花费的时间" + (timeEnd - timeStart));
     }
 
+    /**
+     * groupby进行汇总
+     */
     public static void ParallelStreamForObjectTest(List<Student> studentsList) {
         long timeStart = System.currentTimeMillis();
 
